@@ -2,7 +2,7 @@ class Person
       @@people_count = 0
 
        attr_accessor :first_name, :last_name, :phone, :id
-      def initialize(first_name, last_name, phone, id)
+      def initialize(first_name="", last_name="", phone="", id=0)
         @first_name = first_name
         @last_name = last_name
         @phone = phone

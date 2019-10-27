@@ -29,92 +29,123 @@ while picker do
     case choice
     when 1 # Adding new record
         #get values from user
+
+        person = Person.new()
+        person.id = get_next_id(all_people)
+
         puts "New Record\n"
+
         print "Enter First Name:  "
-        fname = gets.chomp
+        person.first_name = gets.chomp
+
         print "Enter Last Name:   "
-        lname = gets.chomp
+        person.last_name = gets.chomp
+
+        set_phone_number(person)
+
+=begin
+
         phoneValid = false
         while phoneValid == false do
-          print "Enter Phone (10 digit number): "
-          phone = gets.chomp
-
-          id = get_next_id(all_people)
-
-          #test to see if the phone number is phoneValid.
-          #
-          if phoneValid = (phone.length == 10) && phone.is_i?
-            person = Person.new(fname, lname, phone, id)
-            all_people.push(person)
-          else
-            puts "\nPlease enter a valid phone number. \n"
-          end
+              print "Enter Phone (10 digit number): "
+              phone = gets.chomp
+              #test to see if the phone number is phoneValid.
+              if phoneValid = (phone.length == 10) && phone.is_i?
+                #person = Person.new(fname, lname, phone, id)
+                person.phone = phone
+              else
+                puts "\nPlease enter a valid phone number. \n"
+              end
         end
+=end
+        all_people.push(person)
         puts "\n*********** Record Added ***************"
       when 2 # Updating a record
         puts "\n*********** Update Record ***************"
 
+        # find Record to delete
+        display_record_names(all_people)
 
-          # Show list of records displaying ID and Name
-          display_record_names(all_people)
+        puts = "\n----------------\n"
+        print "\nSelect ID of record to update: "
+        choice = gets.chomp.to_i
+        puts = "\n----------------\n"
 
-          puts = "\n----------------\n"
-        #  display_records(all_people.select{|x| x.id == id})
+        temp = all_people.find { |l| l.id == choice }
 
+        index = all_people.index { |x| x.id == temp.id }  #=> 1
 
-          puts "\nEnter ID of record to update?"
-          choice = gets.chomp.to_i
+        # confirm that they really want to delete this record
+        print "You want to update record #{temp.id}: for #{temp.full_name}? (Y/N)"
 
-          puts = "\n----------------\n"
-          puts "you selected record #{choice}"
+        select = gets.chomp
 
-          # display the full record here
+        if select.downcase == 'y'
+          # update
 
+          temp_arr = []
+          temp_arr.push(temp)
+          display_records(temp_arr)
           edit_var = true
           while edit_var == true
-              print " \n What do you want to do?\n\n"
-              print "===============================\n"
-              print " To edit First Name, press 1\n"
-              print " To edit Last Name, press 2\n"
-              print " To edit Phone, press 3\n"
-              print " To edit all, press 4\n"
-              print " To cancel, press 5\n"
-              print "===============================\n"
-
+              ## ask what part they want to Update
+              display_update_menu
               edit = gets.chomp.to_i
               case edit
                   when 1
-                    puts "Edit first Name"
+                    print "Enter First Name:  "
+                    temp.first_name = gets.chomp
                   when 2
-                    puts "edit last name"
+                    print "Enter Last Name:  "
+                    temp.last_name = gets.chomp
                   when 3
-                    puts "edit phone number"
+                    phoneValid = false
+                    while phoneValid == false do
+                          print "Enter Phone (10 digit number): "
+                          phone = gets.chomp
+                          #test to see if the phone number is phoneValid.
+                          if phoneValid = (phone.length == 10) && phone.is_i?
+                            temp.phone = phone
+                          else
+                            puts "\nPlease enter a valid phone number. \n"
+                          end
+                    end
                   when 4
-                    puts "edit all"
+                    puts "Edit All"
+
+                    print "Enter First Name:  "
+                    temp.first_name = gets.chomp
+
+                    print "Enter Last Name:  "
+                    temp.last_name = gets.chomp
+
+                    phoneValid = false
+                    while phoneValid == false do
+                          print "Enter Phone (10 digit number): "
+                          phone = gets.chomp
+                          #test to see if the phone number is phoneValid.
+                          if phoneValid = (phone.length == 10) && phone.is_i?
+                            temp.phone = phone
+                          else
+                            puts "\nPlease enter a valid phone number. \n"
+                          end
+                    end
+
                   when 5
                     print "Return to Main Menu"
                     edit_var = false
                   else
                     puts "Enter a value between 1 and 5"
               end
+              all_people[index] = temp
           end
 
 
-        # ask what they want to Update
+          # give message that record has been deleted
+          puts "\n*********** Record Updated ***************"
 
+        end
 
-        # get change
-
-
-        # confirm change
-
-
-        # make change
-
-
-        # display change
-
-        # give message that update has been done
 
       when 3 # Deleteing a record
         puts "\n*********** Delete Record ***************"

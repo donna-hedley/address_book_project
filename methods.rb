@@ -78,9 +78,36 @@ def display_main_menu
   print " To display a person, press 4\n"
   print " To display all people, press 5\n"
   print " To exit, press 6\n"
-  print " Testing 9\n"
+#  print " Testing 9\n"
   print "===============================\n\n\n"
+end
 
 
 
+def display_update_menu
+
+  print " \n How do you wish to edit?\n\n"
+  print "===============================\n"
+  print " To edit First Name, press 1\n"
+  print " To edit Last Name, press 2\n"
+  print " To edit Phone, press 3\n"
+  print " To edit all, press 4\n"
+  print " To cancel, press 5\n"
+  print "===============================\n"
+
+end
+
+def set_phone_number(person)
+  phoneValid = false
+  while phoneValid == false do
+        print "Enter Phone (10 digit number): "
+        phone = gets.chomp
+        #test to see if the phone number is phoneValid.
+        if phoneValid = (phone.length == 10) && phone.is_i?
+          #person = Person.new(fname, lname, phone, id)
+          person.phone = phone
+        else
+          puts "\nPlease enter a valid phone number. \n"
+        end
+  end
 end

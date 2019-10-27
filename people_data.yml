@@ -15,9 +15,9 @@
   phone: '1112223334'
   id: 6
 - !ruby/object:Person
-  first_name: asd
-  last_name: sd
-  phone: '1231231234'
+  first_name: Rebecca
+  last_name: Buist
+  phone: '3333333333'
   id: 7
 - !ruby/object:Person
   first_name: Jane
@@ -25,7 +25,17 @@
   phone: '1231231234'
   id: 10
 - !ruby/object:Person
-  first_name: sdf
-  last_name: asdf
-  phone: '3333333333'
+  first_name: Vicky
+  last_name: Barber
+  phone: '1231231234'
   id: 11
+- !ruby/object:Person
+  first_name: hello
+  last_name: baby
+  phone: '3333333333'
+  id: 12
+- !ruby/object:Person
+  first_name: Red
+  last_name: Skelton
+  phone: '3333333333'
+  id: 13
