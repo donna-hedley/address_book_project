@@ -5,10 +5,20 @@
   phone: '1231231234'
   id: 1
 - !ruby/object:Person
+  first_name: yyy
+  last_name: yyy
+  phone: '5555555555'
+  id: 2
+- !ruby/object:Person
   first_name: Heather
   last_name: Buist
   phone: '1231231234'
   id: 3
+- !ruby/object:Person
+  first_name: dasflj
+  last_name: asdjf;
+  phone: '1231231234'
+  id: 4
 - !ruby/object:Person
   first_name: Ken
   last_name: Lloyd
