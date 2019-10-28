@@ -39,3 +39,18 @@
   last_name: Skelton
   phone: '3333333333'
   id: 13
+- !ruby/object:Person
+  first_name: Bye
+  last_name: Bye
+  phone: '3333333333'
+  id: 14
+- !ruby/object:Person
+  first_name: Pretty
+  last_name: Girl
+  phone: '3333333333'
+  id: 15
+- !ruby/object:Person
+  first_name: Peter
+  last_name: Piper
+  phone: '3333333333'
+  id: 16

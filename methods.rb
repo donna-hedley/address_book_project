@@ -111,3 +111,8 @@ def set_phone_number(person)
         end
   end
 end
+
+def set_first_name(person)  
+    print "Enter First Name:  "
+    person.first_name = gets.chomp
+end

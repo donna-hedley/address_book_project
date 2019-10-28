@@ -17,10 +17,6 @@ phone = ''
 file_name = 'people_data.yml'
 all_people = read_records(file_name)
 
-
-
-
-
 # display menu items until user exits
 picker = true
 while picker do
@@ -33,31 +29,20 @@ while picker do
         person = Person.new()
         person.id = get_next_id(all_people)
 
-        puts "New Record\n"
+        puts "=========== New Record ==================\n"
 
+        set_first_name(person)
+
+=begin
         print "Enter First Name:  "
         person.first_name = gets.chomp
+
+=end
 
         print "Enter Last Name:   "
         person.last_name = gets.chomp
 
         set_phone_number(person)
-
-=begin
-
-        phoneValid = false
-        while phoneValid == false do
-              print "Enter Phone (10 digit number): "
-              phone = gets.chomp
-              #test to see if the phone number is phoneValid.
-              if phoneValid = (phone.length == 10) && phone.is_i?
-                #person = Person.new(fname, lname, phone, id)
-                person.phone = phone
-              else
-                puts "\nPlease enter a valid phone number. \n"
-              end
-        end
-=end
         all_people.push(person)
         puts "\n*********** Record Added ***************"
       when 2 # Updating a record
@@ -93,25 +78,14 @@ while picker do
               edit = gets.chomp.to_i
               case edit
                   when 1
-                    print "Enter First Name:  "
+                    print "Enter First Name: "
                     temp.first_name = gets.chomp
                   when 2
                     print "Enter Last Name:  "
                     temp.last_name = gets.chomp
                   when 3
-                    phoneValid = false
-                    while phoneValid == false do
-                          print "Enter Phone (10 digit number): "
-                          phone = gets.chomp
-                          #test to see if the phone number is phoneValid.
-                          if phoneValid = (phone.length == 10) && phone.is_i?
-                            temp.phone = phone
-                          else
-                            puts "\nPlease enter a valid phone number. \n"
-                          end
-                    end
+                    set_phone_number(temp)
                   when 4
-                    puts "Edit All"
 
                     print "Enter First Name:  "
                     temp.first_name = gets.chomp
@@ -119,38 +93,21 @@ while picker do
                     print "Enter Last Name:  "
                     temp.last_name = gets.chomp
 
-                    phoneValid = false
-                    while phoneValid == false do
-                          print "Enter Phone (10 digit number): "
-                          phone = gets.chomp
-                          #test to see if the phone number is phoneValid.
-                          if phoneValid = (phone.length == 10) && phone.is_i?
-                            temp.phone = phone
-                          else
-                            puts "\nPlease enter a valid phone number. \n"
-                          end
-                    end
+                    set_phone_number(temp)
 
                   when 5
-                    print "Return to Main Menu"
                     edit_var = false
                   else
                     puts "Enter a value between 1 and 5"
               end
               all_people[index] = temp
           end
-
-
           # give message that record has been deleted
           puts "\n*********** Record Updated ***************"
-
         end
-
 
       when 3 # Deleteing a record
         puts "\n*********** Delete Record ***************"
-
-
         # find Record to delete
         display_record_names(all_people)
 
@@ -174,8 +131,6 @@ while picker do
           puts "\n*********** Record Deleted ***************"
         end
 
-
-
       when 4 # Finding a REcord
         puts "Find Record"
         # prompt for search value
@@ -187,11 +142,11 @@ while picker do
         # give message if record is not found
 
       when 5 #Displaying a record
-        puts "\n*********** All Records ********************"
-        display_records(all_people)
-        puts "\n****** Total Records: #{all_people.length} ******\n\n\n"
-        print "Return"
-        gets.chomp
+          puts "\n*********** All Records ********************"
+          display_records(all_people)
+          puts "\n****** Total Records: #{all_people.length} ******\n\n\n"
+          print "Return"
+          gets.chomp
       when 6 # Updating data and exiting program
           puts "Bye, Bye!"
           save_records(all_people, file_name)
