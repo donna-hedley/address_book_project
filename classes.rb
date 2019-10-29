@@ -1,13 +1,13 @@
 class Person
       @@people_count = 0
 
-       attr_accessor :first_name, :last_name, :phone, :id
-      def initialize(first_name="", last_name="", phone="", id=0)
+      attr_accessor :first_name, :last_name, :phone, :id, :addressess
+      def initialize(first_name="", last_name="", phone="", id=0, addressess)
         @first_name = first_name
         @last_name = last_name
         @phone = phone
         @id = id
-
+        @addressess = []
         @@people_count += 1
       end
 
@@ -15,9 +15,12 @@ class Person
         @first_name
       end
 
-
       def id
         @id
+      end
+
+      def addressess
+        @addressess
       end
 
       def last_name
@@ -52,22 +55,32 @@ end
 
 
 class Address
-  attr_accessor :kind, :street_1, :street_2, :city, :state, :postal_code
+  attr_accessor :kind, :street, :city, :province, :postal_code
+
+  def initialize(kind, street, city, province, postal_code)
+    @kind = kind
+    @street = street
+    @city = city
+    @province = province
+    @postal_code = postal_code
+  end
+
+  def kind
+    @kind
+  end
 
   def to_s(format = 'short')
     address = ''
     case format
     when 'long'
-      address += street_1 + "\n"
-      address += street_2 + "\n" if !street_2.nil?
-      address += "#{city}, #{state} #{postal_code}"
+      address += street + "\n" if !street.nil?
+      address += "#{city}, #{province} #{postal_code}"
     when 'short'
       address += "#{kind}: "
-      address += street_1
-      if street_2
-        address += " " + street_2
+      if street
+        address += " " + street
       end
-      address += ", #{city}, #{state}, #{postal_code}"
+      address += ", #{city}, #{province}, #{postal_code}"
     end
     address
   end

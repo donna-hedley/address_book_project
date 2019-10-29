@@ -1,56 +1,49 @@
 ---
 - !ruby/object:Person
-  first_name: jack
-  last_name: black
-  phone: '1231231234'
+  first_name: sdf
+  last_name: sdf
+  phone: '3333333333'
   id: 1
-- !ruby/object:Person
-  first_name: Heather
-  last_name: Buist
-  phone: '1231231234'
-  id: 3
+  addressess:
+  - !ruby/object:Address
+    kind: Business
+    street: 124 apple street
+    city: Toronto
+    province: true
+    postal_code: K2B 1P8
 - !ruby/object:Person
   first_name: Ken
   last_name: Lloyd
-  phone: '1112223334'
-  id: 6
+  phone: '1111111111'
+  id: 2
+  addressess:
+  - !ruby/object:Address
+    kind: Home
+    street: 444 Purple Avenue
+    city: Ottawa
+    province: true
+    postal_code: K2A 0P7
 - !ruby/object:Person
-  first_name: Rebecca
-  last_name: Buist
+  first_name: Susan
+  last_name: Brown
   phone: '3333333333'
-  id: 7
+  id: 3
+  addressess:
+  - !ruby/object:Address
+    kind: Home
+    street: 987 black Avenue
+    city: Ottawa
+    province: 'ON'
+    postal_code: K2K 2K2
 - !ruby/object:Person
-  first_name: Jane
-  last_name: Doe
-  phone: '1231231234'
-  id: 10
-- !ruby/object:Person
-  first_name: Vicky
-  last_name: Barber
-  phone: '1231231234'
-  id: 11
-- !ruby/object:Person
-  first_name: hello
-  last_name: baby
+  first_name: Susan
+  last_name: Brown
   phone: '3333333333'
-  id: 12
-- !ruby/object:Person
-  first_name: Red
-  last_name: Skelton
-  phone: '3333333333'
-  id: 13
-- !ruby/object:Person
-  first_name: Bye
-  last_name: Bye
-  phone: '3333333333'
-  id: 14
-- !ruby/object:Person
-  first_name: Pretty
-  last_name: Girl
-  phone: '3333333333'
-  id: 15
-- !ruby/object:Person
-  first_name: Peter
-  last_name: Piper
-  phone: '3333333333'
-  id: 16
+  id: 3
+  addressess:
+  - !ruby/object:Address
+    kind: Business
+    street: 999 Jack Street
+    city: Toronto
+    province: K2K 2K2
+    postal_code: 'ON'
