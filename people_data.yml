@@ -47,3 +47,15 @@
     city: Toronto
     province: K2K 2K2
     postal_code: 'ON'
+- !ruby/object:Person
+  first_name: Jake
+  last_name: Blake
+  phone: '3333333333'
+  id: 4
+  addressess:
+  - !ruby/object:Address
+    kind: bus
+    street: 123 blah street
+    city: Ottawa
+    province: 'ON'
+    postal_code: K2K2K2
