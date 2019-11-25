@@ -71,3 +71,15 @@
     city: ottaw
     province: 'on'
     postal_code: sdfsdf
+- !ruby/object:Person
+  first_name: asdf
+  last_name: asdf
+  phone: '2222222222'
+  id: 6
+  addressess:
+  - !ruby/object:Address
+    kind: home
+    street: 234 apples street
+    city: Ottawa
+    province: 'ON'
+    postal_code: k2k2k2
