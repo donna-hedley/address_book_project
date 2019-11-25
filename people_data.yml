@@ -59,3 +59,15 @@
     city: Ottawa
     province: 'ON'
     postal_code: K2K2K2
+- !ruby/object:Person
+  first_name: Judy
+  last_name: Blume
+  phone: '3333333333'
+  id: 5
+  addressess:
+  - !ruby/object:Address
+    kind: Businees
+    street: '333'
+    city: ottaw
+    province: 'on'
+    postal_code: sdfsdf
